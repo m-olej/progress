@@ -53,6 +53,10 @@ function checkWin() {
     document.querySelector(".turn").textContent = `O WINS`;
     document.querySelector(".turn").style.color = "green";
   }
+  if (checkTie() === true) {
+    document.querySelector(".turn").textContent = `IT's a TIE`;
+    document.querySelector(".turn").style.color = "yellow";
+  }
 }
 
 document.querySelector(".reset").addEventListener("click", reset);
@@ -151,6 +155,22 @@ const dioWin_o = function () {
       tiles[4].classList.contains("tile-o") &&
       tiles[6].classList.contains("tile-o"))
   ) {
+    return true;
+  }
+};
+
+const checkTie = function () {
+  let counter = 0;
+  for (let i = 0; i < 9; i++) {
+    if (
+      tiles[i].classList.contains("tile-o") ||
+      tiles[i].classList.contains("tile-x")
+    ) {
+      counter += 1;
+      console.log(counter);
+    }
+  }
+  if (counter === 9) {
     return true;
   }
 };
