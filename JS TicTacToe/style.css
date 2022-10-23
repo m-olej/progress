@@ -1,0 +1,55 @@
+body {
+  font-family: "Cute Font", cursive;
+}
+
+.wrapper {
+  width: 450px;
+  margin: auto;
+}
+
+.action-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reset {
+  height: 30px;
+  font-size: 20px;
+}
+
+.turn {
+  font-size: 45px;
+  text-align: center;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 450px;
+  border: 5px solid black;
+}
+
+.tile {
+  box-sizing: border-box;
+  border: 5px solid black;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tile-x:before {
+  font-size: 200px;
+  content: "X";
+  line-height: 1;
+  color: crimson;
+}
+
+.tile-o:before {
+  font-size: 200px;
+  content: "O";
+  line-height: 1;
+  color: teal;
+}
