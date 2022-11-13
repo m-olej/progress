@@ -7,11 +7,13 @@
 body {
   font-family: sans-serif;
   /* border: 10px solid #1098ad; */
+  position: relative;
 }
 
 .container {
   width: 800px;
   margin: auto;
+  position: relative;
 }
 
 .title {
@@ -21,6 +23,9 @@ body {
   padding-right: 40px; */
   padding: 20px 40px;
   margin-bottom: 60px;
+}
+
+.post-header {
 }
 
 aside {
@@ -184,10 +189,44 @@ nav a:link:last-child {
   margin-right: 0;
 }
 
-button{
+button {
   font-size: 20px;
   padding: 20px;
   cursor: pointer;
 
   position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 5px;
+}
+
+h2::first-letter {
+  font-size: 45px;
+}
+
+/* adjacent sibling selector */
+h3 + p::first-line {
+  color: red;
+}
+
+h2 {
+  position: relative;
+}
+
+h2::after {
+  content: "TOP";
+  background-color: #ffe70e;
+  color: #444;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 5px;
+
+  position: absolute;
+  top: -5px;
+  right: -5px;
 }
