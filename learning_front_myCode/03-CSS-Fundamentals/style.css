@@ -1,9 +1,42 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: sans-serif;
+  /* border: 10px solid #1098ad; */
+}
+
+.container {
+  width: 800px;
+  margin: auto;
 }
 
 .title {
-  background-color: rgb(190, 190, 190);
+  background-color: #f7f7f7;
+  /* padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px; */
+  padding: 20px 40px;
+  margin-bottom: 60px;
+}
+
+aside {
+  background-color: rgb(234, 234, 234);
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  padding: 50px;
+  width: 500px;
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+article header:first-child {
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -14,34 +47,64 @@ h1 {
 }
 
 h2 {
+  margin-bottom: 30px;
   font-size: 40px;
 }
 
 h3 {
   font-size: 30px;
+  margin-bottom: 20px;
 }
 
 h4 {
   font-size: 20px;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: rgb(238, 233, 91);
+  color: #1098ad;
 }
 
 p {
+  margin-bottom: 15px;
   font-size: 22px;
   line-height: 1.5;
+}
+
+ul,
+ol {
+  margin-left: 50px;
+  margin-bottom: 15px;
 }
 
 li {
   font-size: 20px;
   text-align: justify;
+  margin-bottom: 15px;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* .first-li {
+  font-weight: bold;
+} */
+
+li:first-child {
+  font-weight: bold;
+}
+
+li:last-child {
+  font-style: italic;
+}
+
+li:nth-child(even) {
+  color: red;
 }
 
 footer p {
@@ -70,28 +133,6 @@ footer p {
   list-style: none;
 }
 
-aside {
-  background-color: rgb(234, 234, 234);
-  border-top: 5px solid #1098ad;
-  border-bottom: 5px solid #1098ad;
-}
-
-/* .first-li {
-  font-weight: bold;
-} */
-
-li:first-child {
-  font-weight: bold;
-}
-
-li:last-child {
-  font-style: italic;
-}
-
-li:nth-child(even) {
-  color: red;
-}
-
 /* doesn't work p isn't a first child in article */
 article p:first-child {
   color: red;
@@ -116,4 +157,37 @@ a:hover {
 a:active {
   background-color: black;
   font-style: italic;
+}
+
+.post-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+nav {
+  font-size: 18px;
+}
+
+nav a:link {
+  /* background-color: orangered;
+  margin: 20px;
+  padding: 20px;
+  display: block;
+  margin-left: 0; */
+  margin-right: 30px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+nav a:link:last-child {
+  margin-right: 0;
+}
+
+button{
+  font-size: 20px;
+  padding: 20px;
+  cursor: pointer;
+
+  position: absolute;
 }
