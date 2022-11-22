@@ -1,0 +1,3 @@
+[submodule "learning_react/my_code/react-complete-guide-code"]
+	path = learning_react/my_code/react-complete-guide-code
+	url = https://github.com/academind/react-complete-guide-code.git
