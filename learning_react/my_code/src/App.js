@@ -1,7 +1,7 @@
-import ExpenseItem from "./components/ExpenseItem";
-import Expenses from "./components/Expenses";
+import React from "react";
+import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e0",
@@ -29,7 +29,12 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started"),
+  //   React.createElement(Expenses, { expenses: expenses })
+  // );
   return (
     <div>
       <h2>Let's get started!</h2>
@@ -39,6 +44,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
