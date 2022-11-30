@@ -14,7 +14,7 @@
       }
       .el--3 {
         background-color: green;
-        /* height: 150px; */
+        height: 150px;
       }
       .el--4 {
         background-color: goldenrod;
@@ -36,14 +36,34 @@
         /* STARTER */
         font-family: sans-serif;
         background-color: #ddd;
-        font-size: 40px;
+        font-size: 32px;
         margin: 30px;
         height: 150px;
+        width: 800px;
 
         /* FLEXBOX */
         display: flex;
-        /* align-items: center; */
-        justify-content: space-between;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 22px;
+      }
+
+      .el {
+        /* margin-right: 10px; */
+      }
+
+      .el--1 {
+        align-self: flex-start;
+        /* order: 2; */
+      }
+
+      .el--5 {
+        align-self: stretch;
+        order: 1;
+      }
+
+      .el--6 {
+        order: -1;
       }
     </style>
   </head>
