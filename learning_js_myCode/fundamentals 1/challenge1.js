@@ -63,7 +63,7 @@ else if (k_score > d_score && k_score >= 100) console.log("Koalas win the trophy
 else console.log("Noone got the minimum score required to win :c")
 
 
-const bill = Number(prompt("What is thw value of the bill?"));
+const bill = Number(prompt("What is the value of the bill?"));
 
 const tip = bill <= 300 && bill >= 50 ? 0.15 * bill : 0.2 * bill;
 
