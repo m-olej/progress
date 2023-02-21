@@ -37,33 +37,39 @@
         font-family: sans-serif;
         background-color: #ddd;
         font-size: 32px;
-        margin: 30px;
-        height: 150px;
-        width: 800px;
+        margin: 40px;
 
         /* FLEXBOX */
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 22px;
+        /* gap: 20px; */
+
       }
 
-      .el {
-        /* margin-right: 10px; */
+      .el{
+        /* flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto; */
+
+        /* flex-basis:100px; */
+        flex-shrink: 1;
+        flex-grow: 1;
       }
 
-      .el--1 {
+      .el--1{
         align-self: flex-start;
-        /* order: 2; */
       }
 
-      .el--5 {
+      .el--5{
         align-self: stretch;
-        order: 1;
       }
 
-      .el--6 {
+      .el--2{
         order: -1;
+      }
+      .el--3{
+        order: -2;
       }
     </style>
   </head>
