@@ -1,3 +1,4 @@
+import Card from "./Card";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
@@ -24,7 +25,7 @@ function Expenses() {
     },
   ];
   return (
-    <div className="expenses">
+    <Card className="expenses">
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -53,7 +54,7 @@ function Expenses() {
       >
         {" "}
       </ExpenseItem>
-    </div>
+    </Card>
   );
 }
 
