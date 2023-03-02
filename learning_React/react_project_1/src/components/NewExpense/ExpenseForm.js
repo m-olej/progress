@@ -56,6 +56,26 @@ const ExpenseForm = (props) => {
     setEnteredDate("");
   };
 
+  const [cancel, setCancel] = useState(0);
+
+  const onCancelHandler = () => {
+    setCancel((prevState) => prevState + 1);
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+  };
+
+  const onSingleButtonHandler = () => {
+    setCancel((prevState) => prevState - 1);
+  };
+
+  if (cancel === 1) {
+    return (
+      <button className="button-single" onClick={onSingleButtonHandler}>
+        Add expense
+      </button>
+    );
+  }
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
@@ -90,6 +110,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={onCancelHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
