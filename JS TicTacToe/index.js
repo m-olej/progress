@@ -32,30 +32,51 @@ function checkWin() {
   if (verWin_x() === true) {
     document.querySelector(".turn").textContent = `X WINS`;
     document.querySelector(".turn").style.color = "green";
+    Array.from(document.querySelectorAll(".tile")).forEach((el) =>
+      el.classList.add("done")
+    );
   }
   if (horWin_x() === true) {
     document.querySelector(".turn").textContent = `X WINS`;
     document.querySelector(".turn").style.color = "green";
+    Array.from(document.querySelectorAll(".tile")).forEach((el) =>
+      el.classList.add("done")
+    );
   }
   if (dioWin_x() === true) {
     document.querySelector(".turn").textContent = `X WINS`;
     document.querySelector(".turn").style.color = "green";
+    Array.from(document.querySelectorAll(".tile")).forEach((el) =>
+      el.classList.add("done")
+    );
   }
   if (verWin_o() === true) {
     document.querySelector(".turn").textContent = `O WINS`;
     document.querySelector(".turn").style.color = "green";
+    Array.from(document.querySelectorAll(".tile")).forEach((el) =>
+      el.classList.add("done")
+    );
   }
   if (horWin_o() === true) {
     document.querySelector(".turn").textContent = `O WINS`;
     document.querySelector(".turn").style.color = "green";
+    Array.from(document.querySelectorAll(".tile")).forEach((el) =>
+      el.classList.add("done")
+    );
   }
   if (dioWin_o() === true) {
     document.querySelector(".turn").textContent = `O WINS`;
     document.querySelector(".turn").style.color = "green";
+    Array.from(document.querySelectorAll(".tile")).forEach((el) =>
+      el.classList.add("done")
+    );
   }
   if (checkTie() === true) {
     document.querySelector(".turn").textContent = `IT's a TIE`;
     document.querySelector(".turn").style.color = "yellow";
+    Array.from(document.querySelectorAll(".tile")).forEach((el) =>
+      el.classList.add("done")
+    );
   }
 }
 
@@ -66,10 +87,10 @@ function reset() {
   document.querySelector(".turn").textContent = "X turn";
   document.querySelector(".turn").style.color = "black";
   Array.from(document.querySelectorAll(".tile")).forEach((el) =>
-    el.classList.remove("tile-x")
+    el.classList.remove("tile-x", "done")
   );
   Array.from(document.querySelectorAll(".tile")).forEach((el) =>
-    el.classList.remove("tile-o")
+    el.classList.remove("tile-o", "done")
   );
 }
 
