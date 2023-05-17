@@ -6,6 +6,11 @@
   max-width: 40rem;
 }
 
+.button-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .wrapper label {
   font-size: 20px;
   font-weight: 900;

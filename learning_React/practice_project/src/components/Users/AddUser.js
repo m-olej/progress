@@ -62,7 +62,10 @@ const AddUser = (props) => {
           value={enterdAge}
           onChange={ageChangeHandler}
         />
-        <Button onClick={addUserHandler}>Add User</Button>
+        <div className={styles["button-flex"]}>
+          <Button onClick={addUserHandler}>Add User</Button>
+          <Button className="secondary">Hint?</Button>
+        </div>
       </form>
     </Container>
   );

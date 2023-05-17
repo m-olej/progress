@@ -1,7 +1,12 @@
 import styles from "../../styles/UI/container.module.css";
 
 const Container = (props) => {
-  let classes = `${styles.main} ${props.className}`;
+  let classes;
+  if (props.className === undefined) {
+    classes = `${styles.main}`;
+  } else {
+    classes = `${styles[props.className]}`;
+  }
   return <div className={classes}>{props.children}</div>;
 };
 

@@ -1,4 +1,4 @@
-.wrapper button {
+button {
   margin-top: 5px;
   aspect-ratio: 3/1;
   width: 110px;
@@ -8,6 +8,14 @@
   font-size: 18px;
 }
 
-.wrapper button:hover {
-  background-color: rgb(71, 41, 99);
+button:hover {
+  background-color: rgb(69, 36, 100);
+}
+
+.secondary {
+  background-color: rgb(137, 81, 190);
+}
+
+button.secondary:hover {
+  background-color: rgb(104, 65, 167);
 }
