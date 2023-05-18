@@ -2,6 +2,7 @@ import Button from "./Button";
 import Container from "./Container";
 import styles from "../../styles/UI/HintModal.module.css";
 import { useState } from "react";
+import { useCallback, useEffect } from "react";
 
 const HintModal = (props) => {
   let names = require(`../lul/names.json`);
@@ -16,23 +17,44 @@ const HintModal = (props) => {
     props.closeModal();
   };
 
-  const onRerollHandler = (event) => {
+  const escFunction = useCallback((event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      props.closeModal();
+    }
+  }, []);
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, [escFunction]);
+
+  const onRerollHandler = () => {
     setRandName(names[Math.floor(Math.random() * 21980)]);
     setRandAge(Math.floor(Math.random() * 100));
   };
 
+  const onAddNameHandler = () => {
+    props.onNameAdd(randName);
+  };
+
+  const onAddAgeHandler = () => {
+    props.onAgeAdd(randAge);
+  };
+
   return (
     <div className={styles.show}>
-      <div className={styles.backdrop} />
+      <div className={styles.backdrop} onClick={onCloseHandler} />
       <Container className="modal">
         <header className={styles.header}>
           <h2>Here are some Name and Age ideas</h2>
         </header>
         <div className={styles.hintFlex}>
-          <div>
+          <div onClick={onAddNameHandler}>
             <h3>{randName}</h3>
           </div>
-          <div>
+          <div onClick={onAddAgeHandler}>
             <h3>{randAge}</h3>
           </div>
         </div>

@@ -53,9 +53,23 @@ const AddUser = (props) => {
     setShowModal(false);
   };
 
+  const onAddNameHandler = (namee) => {
+    setEnteredUsername(namee);
+  };
+
+  const onAddAgeHandler = (agee) => {
+    setEnteredAge(agee);
+  };
+
   return (
-    <div>
-      {showModal && <HintModal closeModal={onCloseModalHandler} />}
+    <div className={styles.main}>
+      {showModal && (
+        <HintModal
+          closeModal={onCloseModalHandler}
+          onAgeAdd={onAddAgeHandler}
+          onNameAdd={onAddNameHandler}
+        />
+      )}
       <Container>
         <form className={styles.wrapper} onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
