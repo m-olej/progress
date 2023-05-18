@@ -2,12 +2,14 @@ import { useState } from "react";
 import styles from "../../styles/components/AddUser.module.css";
 import Button from "../UI/Button";
 import Container from "../UI/Container";
+import HintModal from "../UI/HintModal";
 
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enterdAge, setEnteredAge] = useState("");
   const [userValid, setUserValid] = useState(true);
   const [ageValid, setAgeValid] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const addUserHandler = (event) => {
     event.preventDefault();
@@ -42,32 +44,46 @@ const AddUser = (props) => {
     setEnteredAge(event.target.value);
   };
 
-  return (
-    <Container>
-      <form className={styles.wrapper} onSubmit={addUserHandler}>
-        <label htmlFor="username">Username</label>
-        <input
-          className={`${userValid ? "" : styles.animUser}`}
-          id="username"
-          type="text"
-          value={enteredUsername}
-          onChange={usernameChangeHandler}
-        />
+  const onHintClickHandler = (event) => {
+    event.preventDefault();
+    setShowModal(true);
+  };
 
-        <label htmlFor="age">Age (Years)</label>
-        <input
-          className={`${ageValid ? "" : styles.animAge}`}
-          id="age"
-          type="number"
-          value={enterdAge}
-          onChange={ageChangeHandler}
-        />
-        <div className={styles["button-flex"]}>
-          <Button onClick={addUserHandler}>Add User</Button>
-          <Button className="secondary">Hint?</Button>
-        </div>
-      </form>
-    </Container>
+  const onCloseModalHandler = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <div>
+      {showModal && <HintModal closeModal={onCloseModalHandler} />}
+      <Container>
+        <form className={styles.wrapper} onSubmit={addUserHandler}>
+          <label htmlFor="username">Username</label>
+          <input
+            className={`${userValid ? "" : styles.animUser}`}
+            id="username"
+            type="text"
+            value={enteredUsername}
+            onChange={usernameChangeHandler}
+          />
+
+          <label htmlFor="age">Age (Years)</label>
+          <input
+            className={`${ageValid ? "" : styles.animAge}`}
+            id="age"
+            type="number"
+            value={enterdAge}
+            onChange={ageChangeHandler}
+          />
+          <div className={styles["button-flex"]}>
+            <Button onClick={addUserHandler}>Add User</Button>
+            <Button className="secondary" onClick={onHintClickHandler}>
+              Hint?
+            </Button>
+          </div>
+        </form>
+      </Container>
+    </div>
   );
 };
 
