@@ -4,6 +4,8 @@ import styles from "../../styles/UI/HintModal.module.css";
 import { useState } from "react";
 import { useCallback, useEffect } from "react";
 
+// to - do use ReactDOM.createPortal() to render HintModal above the root
+
 const HintModal = (props) => {
   let names = require(`../lul/names.json`);
 
@@ -17,12 +19,15 @@ const HintModal = (props) => {
     props.closeModal();
   };
 
-  const escFunction = useCallback((event) => {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      props.closeModal();
-    }
-  }, []);
+  const escFunction = useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        props.closeModal();
+      }
+    },
+    [props]
+  );
   useEffect(() => {
     document.addEventListener("keydown", escFunction, false);
     return () => {

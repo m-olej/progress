@@ -3,6 +3,7 @@ import styles from "../../styles/components/AddUser.module.css";
 import Button from "../UI/Button";
 import Container from "../UI/Container";
 import HintModal from "../UI/HintModal";
+import Wrapper from "../Helpers/Wrapper";
 
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
@@ -13,6 +14,7 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
+
     if (+enterdAge > 0 && enteredUsername.trim().length > 0) {
       props.onAddUser(enteredUsername, enterdAge);
     } else if (+enterdAge > 0) {
@@ -62,7 +64,7 @@ const AddUser = (props) => {
   };
 
   return (
-    <div className={styles.main}>
+    <Wrapper>
       {showModal && (
         <HintModal
           closeModal={onCloseModalHandler}
@@ -97,7 +99,7 @@ const AddUser = (props) => {
           </div>
         </form>
       </Container>
-    </div>
+    </Wrapper>
   );
 };
 
