@@ -1,35 +1,37 @@
 import classes from "./Counter.module.css";
 import { useSelector, useDispatch } from "react-redux";
+import { counterActions } from "../store/counter";
 
 const Counter = () => {
   // automatically sets up (and deletes if func is deleted) the subscriber to the redux store for this component
   // Changes in the redux store will cause this function to run again
   // and receive the latest State
-  const counter = useSelector((state) => state.counter);
-  const amount = useSelector((state) => state.amount);
-  const show = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  const amount = useSelector((state) => state.counter.amount);
+  const show = useSelector((state) => state.counter.showCounter);
+  console.log(counter, amount, show);
 
   const dispatch = useDispatch();
 
   const incrementHandler = () => {
-    dispatch({ type: "increment" });
+    dispatch(counterActions.increment());
   };
 
   const increaseHandler = () => {
-    dispatch({ type: "increase", amount: amount });
+    dispatch(counterActions.increase({ amount: amount })); // { type: SOME_UNIQUE_IDENTIFIER, payload: amount }
   };
 
   const amountChangeHandler = (event) => {
     event.preventDefault();
-    dispatch({ type: "amountChange", amount: +event.target.value });
+    dispatch(counterActions.amountChange({ amount: +event.target.value }));
   };
 
   const decrementHandler = () => {
-    dispatch({ type: "decrement" });
+    dispatch(counterActions.decrement());
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: "toggle" });
+    dispatch(counterActions.toggleCounter());
   };
 
   return (
